@@ -4,13 +4,39 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>TypeScript</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/beige.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+			.imageGrid {
+				display: grid; 
+				grid-template-columns: auto auto; 
+				grid-template-rows: auto;
+				align-items: center;
+				text-align: start;
+			}
+
+			.imageGrid span
+			{
+				padding-left: 16px;
+			}
+
+			.imageGrid img
+			{
+				border: 0px !important;
+				outline: 4px solid #333
+			}
+
+			.profileImages {
+				width: 48px;
+				height: 48px;
+			}
+		</style>
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -24,8 +50,298 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>TypeScript</h1>
+				</section>
+				<section>
+					<h2>Kurze Fragerunde</h2>
+					<ul>
+						<li class="fragment fade-in">Programmiererfahrung?</li>
+						<li class="fragment fade-in">Bereits mit JavaScript gearbeitet?</li>
+						<li class="fragment fade-in">Bereits mit TypeScript gearbeitet?</li>
+						<li class="fragment fade-in">Web (Client)?</li>
+						<li class="fragment fade-in">Node.js?</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Wer redet hier eigentlich?</h2>
+					<p>Pascal Blessing</p>
+					<p>1. Semester MMT Bachelor</p>
+					<p>arbeite seit ca 3 Jahren viel mit JavaScript</p>
+					<p>seit ca 1 1/2 Jahren mit TypeScript an einer hybriden Webanwendung</p>
+					<p>Mail: <a href="mailto:pblessing.mmt-b2017@fh-salzburg.ac.at">pblessing.mmt-b2017@fh-salzburg.ac.at</a></p>
+				</section>
+				<section>
+					<h2>Was ist TypeScript?</h2>
+					<ul>
+						<li class="fragment fade-in">Superset von JavaScript</li>
+						<li class="fragment fade-in">Static Typing für JavaScript</li>
+						<li class="fragment fade-in">Ideal für größere Projekte</li>
+						<li class="fragment fade-in">Ideal beim Arbeiten mit APIs und Libraries</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Warum TypeScript</h2>
+						<ul>
+							<li class="fragment fade-in">Größere Projekte lassen sich leichter managen.</li>
+							<li class="fragment fade-in">Compiletime exceptions wenn "falsche" Typenkonversionen gemacht werden.</li>
+							<li class="fragment fade-in">Autocomplete in IDEs</li>
+							<li class="fragment fade-in">Bereits jetzt tolle neue JavaScript features nutzen (ES6, ES7, ...)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>ES-Was?</h2>
+						<p class="fragment fade-in">ECMAScript - Der Standard hinter JavaScript</p>
+						<p class="fragment fade-in">umfasst neue Features für JavaScript</p>
+						<p class="fragment fade-in">früher in Versionen (ES5, ES6, ES7), ab Version 6 in Jahreszahlen (ES2015, ES2016)</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Wer steckt dahinter</h2>
+						<p>Microsoft</p>
+						<p class="fragment fade-in">Open Source: <a href="https://github.com/Microsoft/TypeScript">https://github.com/Microsoft/TypeScript</a></p>
+					</section>
+					<section>
+						<h2>Wichtige Personen</h2>
+						<div class="imageGrid">
+							<img class="profileImages" src="img/ahejlsberg.jpg"><span>Anders Hejlsberg - ahejlsberg <br>(Pascal, Turbo Pascal, Delphi, VBA, .NET, C#)</span>
+							<img class="profileImages" src="img/danielrosenwasser.jpg"><span>Daniel Rosenwasser - DanielRosenwasser</span>
+							<img class="profileImages" src="img/mhegazy.jpg"><span>Mohamed Hegazy - mhegazy</span>
+							<img class="profileImages" src="img/vladima.png"><span>Vladimir Matveev - vladima</span>
+							<img class="profileImages" src="img/ryancavanaugh.png"><span>Ryan Cavanaugh - RyanCavanaugh</span>
+							<img class="profileImages" src="img/basarat.jpg"><span>Basarat Ali Syed - basarat (That TypeScript Guy)</span>
+						</div>
+					</section>
+				</section>
+				<section>
+					<h2>Ähnliche Technologien</h2>
+					<ul>
+						<li>Flow - ähnliches Prinzip, je nach Anwendungsfall (funktioniert gut mit React)</li>
+						<li>CoffeScript - dialekt zu Javascript, schnelleres und leserlicheres Coden</li>
+						<li>Babel - stellt neue Features zur Verfügung</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Cool, wie fange ich an?</h2>
+					</section>
+					<section>
+						<h2>File in *.ts umbenennen</h2>
+						<pre><code data-trim data-noescape>
+								function sayHello(name)
+								{
+									return "Hello " + name;
+								}
+
+								const myFirstName = "Pascal";
+
+								console.log(sayHello(myName));
+						</code></pre>
+
+						<b class="fragment fade-in">Type Inference</b>
+					</section>
+					<section>
+						<h2>Variablen typisieren</h2>
+						<pre><code data-trim data-noescape>
+								function sayHello(name)
+								{
+									return "Hello " + name;
+								}
+
+								const myFirstName: string = "Pascal";
+								const myLastName: string;
+								myLastName = "Blessing";
+
+								console.log(sayHello(myName));
+						</code></pre>
+						<p class="fragment fade-in">
+							boolean, number, array, tuple, any, void, null and undefined, never
+						</p>
+					</section>
+					<section>
+						<h2>Parameter typisieren</h2>
+						<pre><code data-trim data-noescape>
+								function sayHello(name: string)
+								{
+									return "Hello " + name;
+								}
+
+								const myFirstName: string = "Pascal";
+								const myLastName: string;
+								myLastName = "Blessing";
+
+								console.log(sayHello(myName));
+						</code></pre>
+					</section>
+					<section>
+						<h2>Funktionsrückgabe typisieren</h2>
+						<pre><code data-trim data-noescape>
+								function sayHello(name: string): string
+								{
+									return "Hello " + name;
+								}
+
+								const myFirstName: string = "Pascal";
+								const myLastName: string;
+								myLastName = "Blessing";
+
+								console.log(sayHello(myName));
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Was kann ich sonst noch machen?</h2>
+					</section>
+					<section>
+						<h2>Interfaces</h2>
+						<pre><code data-trim data-noescape>
+								interface Person 
+								{
+									firstName: string;
+									lastName: string;
+								}
+
+								function sayHello(person: Person): string
+								{
+									return "Hello " + person.firstName + " " + person.lastName;
+								}
+
+								const user = { firstName: "Pascal", lastName: "Blessing" };
+
+								console.log(sayHello(user));
+						</code></pre>
+					</section>
+					<section>
+						<h2>Klassen</h2>
+						<pre><code data-trim data-noescape>
+								class Student
+								{
+									public fullName: string;
+
+									constructor(public firstName: string, public lastName: string)
+									{
+										this.fullName = firstName + " " + lastName;
+									}
+								}
+							
+								interface Person 
+								{
+									firstName: string;
+									lastName: string;
+								}
+
+								function sayHello(person: Person): string
+								{
+									return "Hello " + person.firstName + " " + person.lastName;
+								}
+
+								const user = new Student("Pascal", "Blessing");
+
+								console.log(sayHello(user));
+						</code></pre>
+					</section>
+					<section>
+						<h2>Union Types</h2>
+						<pre><code data-trim data-noescape>
+								function stringify(input: string | number): string
+								{
+									if(typeof input === "number")
+									{
+										input = input.toString();
+									}
+									return input;
+								}
+
+								console.log(stringify("hello"));
+								console.log(stringify(3));
+						</code></pre>
+					</section>
+					<section>
+						<h2>Type assertions</h2>
+						<pre><code data-trim>
+							function handler (event: Event) {
+								let mouseEvent = event as MouseEvent;
+								let mouseEvent2 = <MouseEvent>event;
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Modules</h2>
+						<pre><code data-trim>
+							import * as foo from 'foo';
+							import { User, Student } from 'users';
+
+							export class Bar { };
+							export { Bar };
+							export default { Bar };
+						</code></pre>
+
+						<h3 class="fragment fade-in">Vorsicht:</h3>
+						<ul class="fragment fade-in">
+							<li>"module" / "namespace"</li>
+							<li>&lt;reference path="..." /&gt;</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h2>Arbeiten mit Bibliotheken</h2>
+					<ul>
+						<li class="fragment fade-in">TypeScript-Bibliotheken können direkt eingebunden werden.</li>
+						<li class="fragment fade-in">Definitionen über *.d.ts Dateien</li>
+						<li class="fragment fade-in">Große Bibliothek an Definitionen auf DefinitelyTyped (<a href="https://github.com/DefinitelyTyped/DefinitelyTyped">https://github.com/DefinitelyTyped/DefinitelyTyped</a>)</li>
+						<li class="fragment fade-in">Früher tsd bzw typings, jetzt <pre><code data-trim>npm install @types/*</code></pre></li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Okay, ich habe TypeScript Dateien, was jetzt?</h2>
+						<ul>
+							<li class="fragment fade-in">Compiling mittels TypeScript Compiler (tsc).
+								<pre><code data-trim>
+									npm install -g TypeScript
+									tsc file.ts
+								</code></pre>
+							</li>
+							<li class="fragment fade-in">Watch-Mode mit --watch Flag
+								<pre><code data-trim>tsc file.ts --watch</code></pre>
+							</li>
+							<li class="fragment fade-in">Alternativ in Buildstep integrieren (Grunt, Gulp, Webpack, ...)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Compileroptionen</h2>
+						<ul style="font-size: 0.9em">
+							<li>alwaysStrict</li>
+							<li>declaration</li>
+							<li>module</li>
+							<li>sourceMap</li>
+							<li>noImplicitAny</li>
+							<li>noImplicitThis</li>
+							<li>strictNullChecks</li>
+							<li>strictFunctionTypes</li>
+							<li>target</li>
+						</ul>
+						<p>Für ein Projekt in tsconfig.json</p>
+						<p><a src="http://www.typescriptlang.org/docs/handbook/compiler-options.html">Docs</a></p>
+					</section>
+				</section>
+				<section>
+					<h2>Links</h2>
+					<ul>
+						<li><a src="http://www.typescriptlang.org/index.html">http://www.typescriptlang.org/index.html</a></li>
+						<li><a src="http://www.typescriptlang.org/docs/handbook/basic-types.html">http://www.typescriptlang.org/docs/handbook/basic-types.html</a></li>
+						<li><a src="http://www.typescriptlang.org/play/index.html">http://www.typescriptlang.org/play/index.html</a></li>
+						<li><a src="https://basarat.gitbooks.io/typescript/">https://basarat.gitbooks.io/typescript/</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Kontakt</h2>
+					<p>Pascal Blessing</p>
+					<p>Mail: <a href="mailto:pblessing.mmt-b2017@fh-salzburg.ac.at">pblessing.mmt-b2017@fh-salzburg.ac.at</a></p>
+				</section>
 			</div>
 		</div>
 
